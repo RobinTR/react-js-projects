@@ -4,7 +4,7 @@
 
 ## 🇹🇷 Türkçe
 
-Chef Recipes, elinizdeki malzemelerle AI destekli tarif önerileri sunan modern bir React uygulamasıdır.
+Chef Recipes, elinizdeki malzemelerle AI destekli tarif önerileri sunan modern bir React uygulamasıdır. API'den tarif çekmek için en az 3 malzeme girmeniz gerekmektedir.
 
 ### Özellikler
 
@@ -63,7 +63,7 @@ Chef Recipes, elinizdeki malzemelerle AI destekli tarif önerileri sunan modern 
 
 ## EN
 
-Chef Recipes is a modern React application that provides AI-powered recipe suggestions based on the ingredients you have.
+Chef Recipes is a modern React application that provides AI-powered recipe suggestions based on the ingredients you have. You must enter at least 3 ingredients to fetch a recipe from the API.
 
 ### Features
 
