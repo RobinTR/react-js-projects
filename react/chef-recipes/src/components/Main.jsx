@@ -2,6 +2,7 @@ import "./Main.css";
 import { useState } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientList from "./IngredientsList";
+import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([
@@ -10,15 +11,27 @@ export default function Main() {
     "ground beef",
     "tomato paste",
   ]);
-  const [recipeShown, setRecipeShown] = useState(false);
+  const [recipe, setRecipe] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function handleAction(formData) {
     const ingredient = formData.get("ingredient");
     setIngredients((prev) => [...prev, ingredient]);
   }
 
-  function toggleRecipeShown() {
-    setRecipeShown((prev) => !prev);
+  /*
+  function getRecipe() {
+    getRecipeFromMistral(ingredients).then((recipeFromApi) => {
+      setRecipe(recipeFromApi);
+    });
+  }
+  */
+
+  async function getRecipe() {
+    setLoading(true);
+    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setRecipe(recipeMarkdown);
+    setLoading(false);
   }
 
   return (
@@ -35,10 +48,10 @@ export default function Main() {
       {ingredients.length > 0 && (
         <IngredientList
           ingredients={ingredients}
-          toggleRecipeShown={toggleRecipeShown}
+          getRecipe={getRecipe}
         />
       )}
-      {recipeShown && <ClaudeRecipe />}
+      {(loading || recipe) && <ClaudeRecipe loading={loading} recipe={recipe} />}
     </main>
   );
 }
