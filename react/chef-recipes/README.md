@@ -50,14 +50,12 @@ Chef Recipes, elinizdeki malzemelerle AI destekli tarif önerileri sunan modern 
 
 ### Kodda Öne Çıkanlar
 
-- **State ve Form Yönetimi:**  
   `Main.jsx` dosyasında malzemeler ve tarifler için state yönetimi, formdan veri alma ve güncelleme.
-- **Koşullu Render:**  
   Tarif yüklenirken “Chef is preparing your recipe...” mesajı, tarif geldikten sonra markdown olarak gösterim.
-- **AI ile Tarif Üretimi:**  
   `ai.js` dosyasında HuggingFace API ile tarif önerisi alınır ve markdown formatında ekrana yansıtılır.
-- **Güvenlik:**  
   API anahtarı `.env` dosyasında tutulur ve `.gitignore` ile gizlenir.
+- **Ref Kullanımı:**  
+  Form elemanlarında veya belirli bileşenlerde odak yönetimi ve doğrudan DOM erişimi için React `useRef` kullanılmıştır. Örneğin, kullanıcı yeni bir malzeme eklediğinde input alanının otomatik olarak odaklanması sağlanır.
 
 ---
 
@@ -109,11 +107,9 @@ Chef Recipes is a modern React application that provides AI-powered recipe sugge
 
 ### Code Highlights
 
-- **State & Form Management:**  
   State management for ingredients and recipes, form data handling and updates in `Main.jsx`.
-- **Conditional Rendering:**  
   Loading message (“Chef is preparing your recipe...”) while fetching, recipe displayed in markdown after response.
-- **AI Recipe Generation:**  
   Recipe suggestions fetched from HuggingFace API and rendered in markdown via `ai.js`.
-- **Security:**  
   API key stored in `.env` and ignored via `.gitignore`.
+- **Ref Usage:**  
+  React `useRef` is used for direct DOM access and focus management in form elements or specific components. For example, when a user adds a new ingredient, the input field is automatically focused.
