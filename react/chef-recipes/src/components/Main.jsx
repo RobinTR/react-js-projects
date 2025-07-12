@@ -1,5 +1,5 @@
 import "./Main.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientList from "./IngredientsList";
 import { getRecipeFromMistral } from "../ai";
@@ -8,11 +8,18 @@ export default function Main() {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
   const [loading, setLoading] = useState(false);
+  const recipeSectionRef = useRef(null);
 
-  function handleAction(formData) {
+  function addIngredient(formData) {
     const ingredient = formData.get("ingredient");
     setIngredients((prev) => [...prev, ingredient]);
   }
+
+  useEffect(() => {
+    if (recipe !== "" && recipeSectionRef.current !== null) {
+      recipeSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [recipe]);
 
   /*
   function getRecipe() {
@@ -31,7 +38,7 @@ export default function Main() {
 
   return (
     <main>
-      <form action={handleAction} className="add-ingredient-form">
+      <form action={addIngredient} className="add-ingredient-form">
         <input
           type="text"
           placeholder="e.g. oregano"
@@ -42,11 +49,14 @@ export default function Main() {
       </form>
       {ingredients.length > 0 && (
         <IngredientList
+          recipeSectionRef={recipeSectionRef}
           ingredients={ingredients}
           getRecipe={getRecipe}
         />
       )}
-      {(loading || recipe) && <ClaudeRecipe loading={loading} recipe={recipe} />}
+      {(loading || recipe) && (
+        <ClaudeRecipe loading={loading} recipe={recipe} />
+      )}
     </main>
   );
 }
