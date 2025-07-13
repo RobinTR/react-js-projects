@@ -37,8 +37,7 @@ npm run dev
 ## Görsel
 Oyun ekranı için örnek bir görseli aşağıdaki dosya yoluna ekleyebilirsiniz:
 
-![Tenzies Oyun Ekranı](<img width="445" height="433" alt="Screenshot 2025-07-13 104151" src="https://github.com/user-attachments/assets/0c8adb06-43d0-4e71-ac73-1540be0615f8" />
-)
+<img width="445" height="433" alt="Screenshot 2025-07-13 104151" src="https://github.com/user-attachments/assets/0c8adb06-43d0-4e71-ac73-1540be0615f8" />
 <img width="508" height="488" alt="Screenshot 2025-07-13 104235" src="https://github.com/user-attachments/assets/50141a13-ca2d-4a96-a326-38df553f26aa" />
 
 ---
@@ -79,6 +78,6 @@ npm run dev
 
 ## Image
 
-![Tenzies Game Screenshot](<img width="445" height="433" alt="Screenshot 2025-07-13 104151" src="https://github.com/user-attachments/assets/0c8adb06-43d0-4e71-ac73-1540be0615f8" />)
+<img width="445" height="433" alt="Screenshot 2025-07-13 104151" src="https://github.com/user-attachments/assets/0c8adb06-43d0-4e71-ac73-1540be0615f8" />
 <img width="508" height="488" alt="Screenshot 2025-07-13 104235" src="https://github.com/user-attachments/assets/50141a13-ca2d-4a96-a326-38df553f26aa" />
 ---
