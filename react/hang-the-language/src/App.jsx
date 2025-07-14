@@ -7,7 +7,7 @@ import { useState } from "react";
 import clsx from "clsx";
 
 function App() {
-  const [currentWord, setCurrentWord] = useState(getRandomWord());
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   const wrongGuessCount = guessedLetters.filter(
