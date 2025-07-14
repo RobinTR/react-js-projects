@@ -13,7 +13,7 @@
 Modern React ile geliştirilmiş bir "Adam Asmaca" kelime tahmin oyunu.
 
 ## Canlı Demo
-[Vercel Üzerinden İncele](https://hang-the-language.vercel.app/)
+<a href="https://hang-the-language.vercel.app/" target="_blank" rel="noopener noreferrer">Vercel Üzerinden İncele</a>
 
 ## Özellikler
 
@@ -90,7 +90,7 @@ src/
 A modern Hangman-style word guessing game built with React.
 
 ## Live Demo
-[View on Vercel](https://hang-the-language.vercel.app/)
+<a href="https://hang-the-language.vercel.app/" target="_blank" rel="noopener noreferrer">View on Vercel</a>
 
 ## Features
 
