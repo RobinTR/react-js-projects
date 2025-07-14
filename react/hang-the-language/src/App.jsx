@@ -18,8 +18,8 @@ function App() {
     .split("")
     .every((letter) => guessedLetters.includes(letter));
 
-  const numGuessesLeft = languages.length - 1;
-  const isGameLost = wrongGuessCount >= numGuessesLeft;
+  const totalGuessCount = languages.length - 1;
+  const isGameLost = wrongGuessCount >= totalGuessCount;
   const isGameOver = isGameWon || isGameLost;
   const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
   const isLastGuessIncorrect =
@@ -27,13 +27,17 @@ function App() {
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-  const wordEl = currentWord
-    .split("")
-    .map((letter, index) => (
-      <span key={index}>
-        {guessedLetters.includes(letter) ? letter.toUpperCase() : ""}
+  const showLetters = currentWord.split("").map((letter, index) => {
+    const shouldRevealLetter = isGameLost || guessedLetters.includes(letter);
+    const letterClassName = clsx(
+      isGameLost && !guessedLetters.includes(letter) && "missed-letter"
+    );
+    return (
+      <span className={letterClassName} key={index}>
+        {shouldRevealLetter ? letter.toUpperCase() : ""}
       </span>
-    ));
+    );
+  });
 
   const alphabetEl = alphabet.split("").map((letter) => {
     const isGuessed = guessedLetters.includes(letter);
@@ -110,6 +114,11 @@ function App() {
     return null;
   }
 
+  function startNewGame() {
+    setGuessedLetters([]);
+    setCurrentWord(getRandomWord());
+  }
+
   return (
     <>
       <Header />
@@ -118,14 +127,14 @@ function App() {
           {renderGameStatus()}
         </section>
         <section className="language-chips">{chipElements}</section>
-        <section className="word">{wordEl}</section>
+        <section className="word">{showLetters}</section>
         {/* This section is visually-hidden and it is for screen readers to announce the game status */}
         <section className="sr-only" aria-live="polite" role="status">
           <p>
             {currentWord.includes(lastGuessedLetter)
               ? `Correct! The letter ${lastGuessedLetter} is in the word.`
               : `Sorry, The letter ${lastGuessedLetter} is not in the word.`}
-            You have {numGuessesLeft} attempt(s) left.
+            You have {totalGuessCount} attempt(s) left.
           </p>
           <p>
             Current word:{" "}
@@ -138,7 +147,11 @@ function App() {
           </p>
         </section>
         <section className="keyboard">{alphabetEl}</section>
-        {isGameOver && <button className="new-game">New Game</button>}
+        {isGameOver && (
+          <button className="new-game" onClick={startNewGame}>
+            New Game
+          </button>
+        )}
       </main>
     </>
   );
