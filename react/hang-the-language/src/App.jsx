@@ -2,12 +2,12 @@ import "./App.css";
 import Header from "./components/Header";
 import Chip from "./components/Chip";
 import { languages } from "./utils/languages";
-import { getFarewellText } from "./utils/gameUtils";
+import { getFarewellText, getRandomWord } from "./utils/gameUtils";
 import { useState } from "react";
 import clsx from "clsx";
 
 function App() {
-  const [currentWord, setCurrentWord] = useState("react");
+  const [currentWord, setCurrentWord] = useState(getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   const wrongGuessCount = guessedLetters.filter(
