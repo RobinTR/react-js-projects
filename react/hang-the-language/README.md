@@ -23,9 +23,9 @@ Modern React ile geliştirilmiş bir "Adam Asmaca" kelime tahmin oyunu.
 - **Yardımcı Fonksiyonlar**: Oyun mantığı ve yardımcılar `utils/` klasöründe.
 
 ## Görseller
-<img width="510" height="574" alt="Hang the Language Game Picture" src="https://github.com/user-attachments/assets/1f08cbcc-fc14-4179-8358-2ff8d54e5eee" />
-<img width="535" height="552" alt="Hang the Language Game Picture" src="https://github.com/user-attachments/assets/4f2a2fe1-6cdc-497e-89a4-ab656500c1f5" />
-<img width="562" height="618" alt="Hang the Language Game Picture" src="https://github.com/user-attachments/assets/8ca75b40-a94f-43ab-bb86-bbcd2640a91f" />
+<img width="510" height="400" alt="Hang the Language Game Picture" src="https://github.com/user-attachments/assets/1f08cbcc-fc14-4179-8358-2ff8d54e5eee" />
+<img width="535" height="400" alt="Hang the Language Game Picture" src="https://github.com/user-attachments/assets/4f2a2fe1-6cdc-497e-89a4-ab656500c1f5" />
+<img width="562" height="400" alt="Hang the Language Game Picture" src="https://github.com/user-attachments/assets/8ca75b40-a94f-43ab-bb86-bbcd2640a91f" />
 
 
 
