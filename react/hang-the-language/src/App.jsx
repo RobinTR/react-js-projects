@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Chip from "./components/Chip";
 import { languages } from "./utils/languages";
+import { getFarewellText } from "./utils/gameUtils";
 import { useState } from "react";
 import clsx from "clsx";
 
@@ -19,6 +20,9 @@ function App() {
 
   const isGameLost = wrongGuessCount >= languages.length - 1;
   const isGameOver = isGameWon || isGameLost;
+  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
+  const isLastGuessIncorrect =
+    lastGuessedLetter && !currentWord.includes(lastGuessedLetter);
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -70,39 +74,44 @@ function App() {
   const gameStatusClass = clsx("game-status", {
     lost: isGameLost,
     won: isGameWon,
+    farewell: !isGameOver && isLastGuessIncorrect,
   });
 
   function renderGameStatus() {
-    if (!isGameOver) {
-      return null;
+    if (!isGameOver && isLastGuessIncorrect) {
+      return (
+        <p className="farewell-message">
+          {getFarewellText(languages[wrongGuessCount - 1].name)}
+        </p>
+      );
     }
 
     if (isGameWon) {
       return (
         <>
-          <h2>You Win!</h2>
+          <h2>You win!</h2>
           <p>Well done! 🎉</p>
         </>
       );
-    } else {
+    }
+
+    if (isGameLost) {
       return (
         <>
-          <h2>Game Over!</h2>
-          <p>
-            You lose! Better start learning {languages[languages.length - 1].name}
-          </p>
+          <h2>Game over!</h2>
+          <p>You lose! Better start learning Assembly 😭</p>
         </>
       );
     }
+
+    return null;
   }
 
   return (
     <>
       <Header />
       <main className="main">
-        <section className={gameStatusClass}>
-          {renderGameStatus()}
-        </section>
+        <section className={gameStatusClass}>{renderGameStatus()}</section>
         <section className="language-chips">{chipElements}</section>
         <section className="word">{wordEl}</section>
         <section className="keyboard">{alphabetEl}</section>
