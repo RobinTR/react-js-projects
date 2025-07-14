@@ -5,6 +5,7 @@ import { languages } from "./utils/languages";
 import { getFarewellText, getRandomWord } from "./utils/gameUtils";
 import { useState } from "react";
 import clsx from "clsx";
+import ConfettiExplosion from "react-confetti-explosion";
 
 function App() {
   const [currentWord, setCurrentWord] = useState(() => getRandomWord());
@@ -26,6 +27,7 @@ function App() {
     lastGuessedLetter && !currentWord.includes(lastGuessedLetter);
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let isExploding = false;
 
   const showLetters = currentWord.split("").map((letter, index) => {
     const shouldRevealLetter = isGameLost || guessedLetters.includes(letter);
@@ -94,10 +96,19 @@ function App() {
     }
 
     if (isGameWon) {
+      isExploding = true;
       return (
         <>
           <h2>You win!</h2>
           <p>Well done! 🎉</p>
+          {
+            <ConfettiExplosion
+              force={0.8}
+              duration={3000}
+              particleCount={250}
+              width={1600}
+            />
+          }
         </>
       );
     }
