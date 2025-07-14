@@ -13,6 +13,13 @@ function App() {
     (letter) => !currentWord.includes(letter)
   ).length;
 
+  const isGameWon = currentWord
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+
+  const isGameLost = wrongGuessCount >= languages.length - 1;
+  const isGameOver = isGameWon || isGameLost;
+
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   const wordEl = currentWord
@@ -60,18 +67,46 @@ function App() {
     );
   }
 
+  const gameStatusClass = clsx("game-status", {
+    lost: isGameLost,
+    won: isGameWon,
+  });
+
+  function renderGameStatus() {
+    if (!isGameOver) {
+      return null;
+    }
+
+    if (isGameWon) {
+      return (
+        <>
+          <h2>You Win!</h2>
+          <p>Well done! 🎉</p>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h2>Game Over!</h2>
+          <p>
+            You lose! Better start learning {languages[languages.length - 1].name}
+          </p>
+        </>
+      );
+    }
+  }
+
   return (
     <>
       <Header />
       <main className="main">
-        <section className="game-status">
-          <h2>You Win!</h2>
-          <p>Well done! 🎉</p>
+        <section className={gameStatusClass}>
+          {renderGameStatus()}
         </section>
         <section className="language-chips">{chipElements}</section>
         <section className="word">{wordEl}</section>
         <section className="keyboard">{alphabetEl}</section>
-        <button className="new-game">New Game</button>
+        {isGameOver && <button className="new-game">New Game</button>}
       </main>
     </>
   );
