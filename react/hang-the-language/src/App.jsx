@@ -18,7 +18,8 @@ function App() {
     .split("")
     .every((letter) => guessedLetters.includes(letter));
 
-  const isGameLost = wrongGuessCount >= languages.length - 1;
+  const numGuessesLeft = languages.length - 1;
+  const isGameLost = wrongGuessCount >= numGuessesLeft;
   const isGameOver = isGameWon || isGameLost;
   const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
   const isLastGuessIncorrect =
@@ -47,8 +48,10 @@ function App() {
       <button
         className={className}
         onClick={() => addGuessedLetter(letter)}
-        aria-label={letter + " word"}
         key={letter}
+        disabled={isGameOver}
+        aria-disabled={guessedLetters.includes(letter) || isGameOver}
+        aria-label={`Letter ${letter}`}
       >
         {letter.toUpperCase()}
       </button>
@@ -111,9 +114,29 @@ function App() {
     <>
       <Header />
       <main className="main">
-        <section className={gameStatusClass}>{renderGameStatus()}</section>
+        <section className={gameStatusClass} aria-live="polite" role="status">
+          {renderGameStatus()}
+        </section>
         <section className="language-chips">{chipElements}</section>
         <section className="word">{wordEl}</section>
+        {/* This section is visually-hidden and it is for screen readers to announce the game status */}
+        <section className="sr-only" aria-live="polite" role="status">
+          <p>
+            {currentWord.includes(lastGuessedLetter)
+              ? `Correct! The letter ${lastGuessedLetter} is in the word.`
+              : `Sorry, The letter ${lastGuessedLetter} is not in the word.`}
+            You have {numGuessesLeft} attempt(s) left.
+          </p>
+          <p>
+            Current word:{" "}
+            {currentWord
+              .split("")
+              .map((letter) =>
+                guessedLetters.includes(letter) ? letter + "." : "blank."
+              )
+              .join(" ")}
+          </p>
+        </section>
         <section className="keyboard">{alphabetEl}</section>
         {isGameOver && <button className="new-game">New Game</button>}
       </main>
