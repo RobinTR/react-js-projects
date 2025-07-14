@@ -1,5 +1,12 @@
-<details>
-<summary><a href="#tr">🇹🇷 Türkçe</a></summary>
+## Language
+
+- [🇹🇷 Türkçe](#turkish)
+- [🇺🇸 English](#english)
+
+---
+
+<div id="turkish" class="turkish-section">
+## 🇹🇷 Türkçe
 
 # Hang The Language
 
@@ -61,11 +68,12 @@ src/
 
 - Yeni dilleri `utils/languages.js` dosyasına ekleyebilirsiniz.
 - Kelime listesini veya oyun mantığını `utils/gameUtils.js` dosyasında değiştirebilirsiniz.
+</div>
 
-</details>
+---
 
-<details>
-<summary><a href="#en">🇺🇸 English</a></summary>
+<div id="english" class="english-section">
+## 🇺🇸 English
 
 # Hang The Language
 
@@ -128,5 +136,4 @@ src/
 
 - Add new languages in `utils/languages.js`.
 - Change word list or game logic in `utils/gameUtils.js`.
-
-</details>
+</div>
