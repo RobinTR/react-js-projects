@@ -12,6 +12,9 @@
 
 Modern React ile geliştirilmiş bir "Adam Asmaca" kelime tahmin oyunu.
 
+## Canlı Demo
+[Vercel Üzerinden İncele](https://hang-the-language.vercel.app/)
+
 ## Özellikler
 
 - **React Fonksiyonel Bileşenler**: Tüm arayüz fonksiyonel bileşenler ve hook'lar (`useState`) ile yazıldı.
@@ -85,6 +88,9 @@ src/
 # Hang The Language
 
 A modern Hangman-style word guessing game built with React.
+
+## Live Demo
+[View on Vercel](https://hang-the-language.vercel.app/)
 
 ## Features
 
