@@ -1,124 +1,15 @@
-import "./App.css";
-import Header from "./components/Header";
-import Chip from "./components/Chip";
-import { languages } from "./utils/languages";
-import { getFarewellText, getRandomWord } from "./utils/gameUtils";
 import { useState } from "react";
 import clsx from "clsx";
-import ConfettiExplosion from "react-confetti-explosion";
 
-function LanguageChips({ languages, wrongGuessCount }) {
-  return (
-    <section className="language-chips">
-      {languages.map((language, i) => (
-        <Chip
-          key={language.name}
-          isLanguageLost={i < wrongGuessCount}
-          name={language.name}
-          backgroundColor={language.backgroundColor}
-          color={language.color}
-        />
-      ))}
-    </section>
-  );
-}
+import Header from "./components/Header";
+import LanguageChips from "./components/LanguageChips";
+import GameStatus from "./components/GameStatus";
+import WordDisplay from "./components/WordDisplay";
+import Keyboard from "./components/Keyboard";
+import { languages } from "./utils/languages";
+import { getFarewellText, getRandomWord } from "./utils/gameUtils";
 
-function WordDisplay({ currentWord, guessedLetters, isGameLost }) {
-  return (
-    <section className="word">
-      {currentWord.split("").map((letter, index) => {
-        const shouldRevealLetter =
-          isGameLost || guessedLetters.includes(letter);
-        const letterClassName = clsx(
-          isGameLost && !guessedLetters.includes(letter) && "missed-letter"
-        );
-        return (
-          <span className={letterClassName} key={index}>
-            {shouldRevealLetter ? letter.toUpperCase() : ""}
-          </span>
-        );
-      })}
-    </section>
-  );
-}
-
-function Keyboard({
-  alphabet,
-  guessedLetters,
-  currentWord,
-  isGameOver,
-  addGuessedLetter,
-}) {
-  return (
-    <section className="keyboard">
-      {alphabet.split("").map((letter) => {
-        const isGuessed = guessedLetters.includes(letter);
-        const isCorrect = isGuessed && currentWord.includes(letter);
-        const isWrong = isGuessed && !currentWord.includes(letter);
-        const className = clsx("alphabet", {
-          correct: isCorrect,
-          wrong: isWrong,
-        });
-        return (
-          <button
-            className={className}
-            onClick={() => addGuessedLetter(letter)}
-            key={letter}
-            disabled={isGameOver}
-            aria-disabled={isGuessed || isGameOver}
-            aria-label={`Letter ${letter}`}
-          >
-            {letter.toUpperCase()}
-          </button>
-        );
-      })}
-    </section>
-  );
-}
-
-function GameStatus({
-  isGameOver,
-  isGameWon,
-  isGameLost,
-  isLastGuessIncorrect,
-  wrongGuessCount,
-  languages,
-  getFarewellText,
-}) {
-  if (!isGameOver && isLastGuessIncorrect) {
-    return (
-      <p className="farewell-message">
-        {getFarewellText(languages[wrongGuessCount - 1].name)}
-      </p>
-    );
-  }
-
-  if (isGameWon) {
-    return (
-      <>
-        <h2>You win!</h2>
-        <p>Well done! 🎉</p>
-        <ConfettiExplosion
-          force={0.8}
-          duration={3000}
-          particleCount={250}
-          width={1600}
-        />
-      </>
-    );
-  }
-
-  if (isGameLost) {
-    return (
-      <>
-        <h2>Game over!</h2>
-        <p>You lose! Better start learning Assembly 😭</p>
-      </>
-    );
-  }
-
-  return null;
-}
+import "./App.css";
 
 function App() {
   const [currentWord, setCurrentWord] = useState(() => getRandomWord());
