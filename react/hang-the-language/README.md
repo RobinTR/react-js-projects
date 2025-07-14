@@ -46,7 +46,7 @@ src/
 
 ## Kullanılan Teknolojiler
 
-- **React 18+**
+- **React 19**
 - **React Fonksiyonel Bileşenler & Hook'lar**
 - **clsx** ile koşullu class yönetimi
 - **react-confetti-explosion** ile animasyon
@@ -113,7 +113,7 @@ src/
 
 ## Technologies Used
 
-- **React 18+**
+- **React 19**
 - **React Functional Components & Hooks**
 - **clsx** for conditional class names
 - **react-confetti-explosion** for win animation
