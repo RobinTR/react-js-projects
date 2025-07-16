@@ -1,7 +1,14 @@
 import "./Die.css";
+import type { JSX } from "react";
+import type { DieType } from "../types/index";
 
-function Die(props) {
-  const buttonClass = props.die.isHeld ? "held" : "";
+type DieProps = {
+  die: DieType;
+  hold: (id: string) => void;
+};
+
+function Die(props: DieProps): JSX.Element {
+  const buttonClass: string = props.die.isHeld ? "held" : "";
 
   return (
     <button
