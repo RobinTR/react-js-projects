@@ -1,38 +1,46 @@
-# Welcome to React Router!
 
-A modern, production-ready template for building full-stack React applications using React Router.
+# React Router v7 CRUD Example
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+This project is a modern CRUD (Create, Read, Update, Delete) application built with React Router v7, Supabase, and TailwindCSS.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- ⚡️ Full CRUD operations with Supabase backend
+- 🚀 Server-side rendering (SSR) by default
+- 🔄 Data loading, mutations, and optimistic UI
+- 🎨 TailwindCSS for rapid styling
+- 🛠️ TypeScript for type safety
+- 🗂️ Vite for fast development and builds
+- 🐳 Docker support for easy deployment
 
 ## Getting Started
 
 ### Installation
 
-Install the dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
+### Environment Variables
+
+Create a `.env` file in the project root and add your Supabase credentials:
+
+```
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
 ### Development
 
-Start the development server with HMR:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Visit `http://localhost:5173` to view the app.
 
 ## Building for Production
 
@@ -42,46 +50,31 @@ Create a production build:
 npm run build
 ```
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Project Structure
 
 ```
+├── app/
+│   ├── routes/         # CRUD pages (items, item, new-item)
+│   ├── supabase-client.ts # Supabase client config
+│   ├── root.tsx        # App root component
+│   └── app.css         # TailwindCSS theme
+├── public/
+├── .env
 ├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+├── tsconfig.json
+├── vite.config.ts
+├── react-router.config.ts
+└── Dockerfile
 ```
 
-## Styling
+## Tech Stack
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- [React Router v7](https://reactrouter.com/)
+- [Supabase](https://supabase.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using React Router, Supabase, and Vite.
