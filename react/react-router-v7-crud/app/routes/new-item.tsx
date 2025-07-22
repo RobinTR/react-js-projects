@@ -2,6 +2,16 @@ import { Form, redirect } from "react-router";
 import type { Route } from "./+types/new-item";
 import { supabase } from "~/supabase-client";
 
+export function meta() {
+  return [
+    { title: "New Item | RRV7 Crud" },
+    {
+      name: "description",
+      content: "Create a new item using our Supabase CRUD App",
+    },
+  ];
+}
+
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
   const title = formData.get("title") as string;
