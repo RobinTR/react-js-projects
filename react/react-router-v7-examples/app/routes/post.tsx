@@ -1,4 +1,4 @@
-import { Form, redirect, useFetcher } from "react-router";
+import { Form, redirect, useFetcher, useNavigate } from "react-router";
 import type { Route } from "./+types/post";
 
 // loader vs clientLoader:
@@ -42,6 +42,7 @@ the UI based on the fetcher state, making it ideal for client-side mutations lik
 export default function Post({ loaderData }: Route.ComponentProps) {
   const fetcher = useFetcher();
   const isDeleted = fetcher.data?.isDeleted;
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -51,6 +52,7 @@ export default function Post({ loaderData }: Route.ComponentProps) {
           <p>Body: {loaderData.body}</p>
         </>
       )}
+      <button onClick={() => navigate("/")}>Redirect</button>
       <fetcher.Form method="delete">
         <button type="submit">Delete</button>
       </fetcher.Form>
