@@ -1,4 +1,3 @@
-
 # React Router v7 CRUD Example
 
 This project is a modern CRUD (Create, Read, Update, Delete) application built with React Router v7, Supabase, and TailwindCSS.
