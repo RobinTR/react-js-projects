@@ -1,4 +1,4 @@
-import { Form, redirect, useFetcher, useNavigate } from "react-router";
+import { Form, Link, redirect, useFetcher, useNavigate } from "react-router";
 import type { Route } from "./+types/post";
 
 // loader vs clientLoader:
@@ -52,6 +52,8 @@ export default function Post({ loaderData }: Route.ComponentProps) {
           <p>Body: {loaderData.body}</p>
         </>
       )}
+      <Link to="/custom/about">About</Link>
+      <br />
       <button onClick={() => navigate("/")}>Redirect</button>
       <fetcher.Form method="delete">
         <button type="submit">Delete</button>
