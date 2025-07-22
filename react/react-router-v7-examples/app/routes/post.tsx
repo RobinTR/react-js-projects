@@ -1,4 +1,4 @@
-import { Form, redirect } from "react-router";
+import { Form, redirect, useFetcher } from "react-router";
 import type { Route } from "./+types/post";
 
 // loader vs clientLoader:
@@ -23,6 +23,42 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 */
 
+export async function clientAction({ params }: Route.ClientActionArgs) {
+  try {
+    await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`, {
+      method: "DELETE",
+    });
+    return { isDeleted: true };
+  } catch (err) {
+    return { isDeleted: false };
+  }
+}
+
+/*
+fetcher.Form is a special Form component from React Router that allows you to submit data
+without causing a full page reload. It handles the form submission asynchronously and updates
+the UI based on the fetcher state, making it ideal for client-side mutations like delete, update, etc.
+*/
+export default function Post({ loaderData }: Route.ComponentProps) {
+  const fetcher = useFetcher();
+  const isDeleted = fetcher.data?.isDeleted;
+
+  return (
+    <div>
+      {!isDeleted && (
+        <>
+          <p>Title: {loaderData.title}</p>
+          <p>Body: {loaderData.body}</p>
+        </>
+      )}
+      <fetcher.Form method="delete">
+        <button type="submit">Delete</button>
+      </fetcher.Form>
+    </div>
+  );
+}
+
+/*
 export async function clientAction({ params }: Route.LoaderArgs) {
   await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`, {
     method: "DELETE",
@@ -41,3 +77,4 @@ export default function Post({ loaderData }: Route.ComponentProps) {
     </div>
   );
 }
+*/
