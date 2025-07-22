@@ -7,7 +7,7 @@ This project is a modern CRUD (Create, Read, Update, Delete) application built w
 
 - ⚡️ Full CRUD operations with Supabase backend
 - 🚀 Server-side rendering (SSR) by default
-- 🔄 Data loading, mutations, and optimistic UI
+- 🔄 Data loading, mutations
 - 🎨 TailwindCSS for rapid styling
 - 🛠️ TypeScript for type safety
 - 🗂️ Vite for fast development and builds
