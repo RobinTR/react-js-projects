@@ -1,5 +1,6 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   NavLink,
@@ -62,6 +63,7 @@ export default function App() {
         >
           Finances
         </NavLink>
+        <Link to="/custom/post/6">Post 6</Link>
       </div>
       <Outlet />
     </>
