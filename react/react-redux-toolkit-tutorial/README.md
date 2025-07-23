@@ -1,69 +1,83 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+[EN](#english) | [TR](#türkçe)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# React Redux Toolkit Tutorial
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Türkçe
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Bu proje, Redux Toolkit'i öğrenmek ve uygulamak amacıyla oluşturulmuştur. Temel amaç, React uygulamalarında global state yönetimini modern ve pratik bir şekilde gerçekleştirmektir.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Proje Özellikleri
+- React + TypeScript
+- Redux Toolkit ile state yönetimi
+- Basit bir film ekleme ve listeleme uygulaması
+- Vite ile hızlı geliştirme ortamı
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Kurulum
+1. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
+2. Geliştirme sunucusunu başlatın:
+   ```bash
+   npm run dev
+   ```
+
+### Klasör Yapısı
+```
+src/
+  components/         # React bileşenleri
+  features/movies/    # Movie slice ve ilgili dosyalar
+  store/              # Redux store yapılandırması
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Kullanılan Teknolojiler
+- React
+- Redux Toolkit
+- TypeScript
+- Vite
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Amaç
+Redux Toolkit'in temel kavramlarını (slice, store, action, reducer) uygulamalı olarak öğrenmek ve pratik yapmak.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## English
+
+This project was created to learn and practice Redux Toolkit. The main goal is to implement global state management in React applications in a modern and practical way.
+
+### Features
+- React + TypeScript
+- State management with Redux Toolkit
+- Simple movie add & list app
+- Fast development with Vite
+
+### Installation
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+### Folder Structure
 ```
+src/
+  components/         # React components
+  features/movies/    # Movie slice and related files
+  store/              # Redux store setup
+```
+
+### Technologies Used
+- React
+- Redux Toolkit
+- TypeScript
+- Vite
+
+### Purpose
+To learn and practice the core concepts of Redux Toolkit (slice, store, action, reducer) with hands-on coding.
