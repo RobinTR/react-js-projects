@@ -60,12 +60,9 @@ A modern, React app to explore countries around the world.
 
 ## 🖼️ Screenshots
 
-![Home Page](<img width="1900" height="900" alt="image" src="https://github.com/user-attachments/assets/2bc88ca7-7ffc-4e19-9b1f-f25dfc44ba8d" />
-)
-![Countries List](<img width="1900" height="900" alt="image" src="https://github.com/user-attachments/assets/f1489493-20aa-45be-b6dc-571fbca87c46" />
-)
-![Country Detail](<img width="1900" height="900" alt="image" src="https://github.com/user-attachments/assets/d2d8e9c2-0859-47e4-bfc9-0350bf4889d0" />
-)
+<img width="600" height="600" alt="Home Page" src="https://github.com/user-attachments/assets/2bc88ca7-7ffc-4e19-9b1f-f25dfc44ba8d" />
+<img width="600" height="600" alt="Countries List" src="https://github.com/user-attachments/assets/f1489493-20aa-45be-b6dc-571fbca87c46" />
+<img width="600" height="600" alt="Country Detail" src="https://github.com/user-attachments/assets/d2d8e9c2-0859-47e4-bfc9-0350bf4889d0" />
 
 ---
 
