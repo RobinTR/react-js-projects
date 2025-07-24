@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export async function clientLoader() {
   const res = await fetch(
-    "https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region,languages"
+    "https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region,subregion,languages"
   );
   const data = await res.json();
 
@@ -51,24 +51,29 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
           <option value="oceania">Oceania</option>
         </select>
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredCountries.map((country: Country, key: number) => (
-          <li
-            key={key}
-            className="bg-white border border-gray-200 rounded-xl p-4 shadow hover:shadow-lg transition"
-          >
-            <Link
-              to={`/countries/${country.name.common}`}
-              className="text-indigo-600 hover:underline text-lg font-semibold"
+
+      {filteredCountries.length === 0 ? (
+        <div>No countries match your filters.</div>
+      ) : (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {filteredCountries.map((country: Country, key: number) => (
+            <li
+              key={key}
+              className="bg-white border border-gray-200 rounded-xl p-4 shadow hover:shadow-lg transition"
             >
-              {country.name.common}
-            </Link>
-            <div className="text-gray-600 text-sm mt-1">
-              Region: {country.region} | Population: {country.population}
-            </div>
-          </li>
-        ))}
-      </ul>
+              <Link
+                to={`/countries/${country.name.common}`}
+                className="text-indigo-600 hover:underline text-lg font-semibold"
+              >
+                {country.name.common}
+              </Link>
+              <div className="text-gray-600 text-sm mt-1">
+                Region: {country.region} | Population: {country.population}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
