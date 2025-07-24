@@ -8,7 +8,7 @@ export default function About() {
         <p className="text-xl text-gray-700 leading-relaxed mb-4">
           Welcome! This site lets you explore countries around the world using
           the{" "}
-          <span className="font-semibold text-indigo-600">
+          <span className="font-semibold text-rose-600">
             REST Countries API
           </span>
           .

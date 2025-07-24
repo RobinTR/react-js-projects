@@ -40,12 +40,12 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
           placeholder="Search by Name"
           value={search}
           onChange={(e) => dispatch(setCountryName(e.currentTarget.value))}
-          className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-indigo-500"
+          className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-rose-500"
         />
         <select
           value={region}
           onChange={(e) => dispatch(setCountryRegion(e.currentTarget.value))}
-          className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-indigo-500"
+          className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-rose-500"
         >
           <option value="">All Regions</option>
           <option value="africa">Africa</option>
@@ -67,7 +67,7 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
             >
               <Link
                 to={`/countries/${country.name.common}`}
-                className="text-indigo-600 hover:underline text-lg font-semibold"
+                className="text-rose-600 hover:underline text-lg font-semibold"
               >
                 {country.name.common}
               </Link>
