@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import type { Route } from "./+types/countries";
 import type { Country } from "~/types";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "~/store";
+import { setCountryName } from "./countryNameSlice";
+import { setCountryRegion } from "./countryRegionSlice";
 
 export async function clientLoader() {
   const res = await fetch(
@@ -13,8 +16,9 @@ export async function clientLoader() {
 }
 
 export default function Countries({ loaderData }: Route.ComponentProps) {
-  const [search, setSearch] = useState<string>("");
-  const [region, setRegion] = useState<string>("");
+  const dispatch = useDispatch();
+  const search = useSelector((state: RootState) => state.countryName);
+  const region = useSelector((state: RootState) => state.countryRegion);
 
   const filteredCountries = loaderData.filter((country: Country) => {
     const matchesRegion =
@@ -35,12 +39,12 @@ export default function Countries({ loaderData }: Route.ComponentProps) {
           type="text"
           placeholder="Search by Name"
           value={search}
-          onChange={(e) => setSearch(e.currentTarget.value)}
+          onChange={(e) => dispatch(setCountryName(e.currentTarget.value))}
           className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-indigo-500"
         />
         <select
           value={region}
-          onChange={(e) => setRegion(e.currentTarget.value)}
+          onChange={(e) => dispatch(setCountryRegion(e.currentTarget.value))}
           className="border border-gray-300 rounded px-3 py-2 w-full sm:w-1/2 focus:outline-none focus:border-indigo-500"
         >
           <option value="">All Regions</option>

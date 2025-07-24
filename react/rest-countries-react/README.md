@@ -1,87 +1,76 @@
-# Welcome to React Router!
+# 🌍 RESTExplorer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A modern, React app to explore countries around the world.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+[![React](https://img.shields.io/badge/React-19.1.0-61DAFB?logo=react)](https://react.dev/)
+[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.8.2-764ABC?logo=redux)](https://redux-toolkit.js.org/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1.4-38B2AC?logo=tailwindcss)](https://tailwindcss.com/)
+[![React Router](https://img.shields.io/badge/React_Router-7.7.0-CA4245?logo=react-router)](https://reactrouter.com/)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)](https://www.docker.com/)
 
 ---
 
-Built with ❤️ using React Router.
+## 🚀 Features
+
+- 🗺️ **REST Countries API Integration**
+- 🎨 **Tailwind CSS Styling**
+- 🛣️ **React Router Navigation**
+- 🏛️ **Redux Toolkit State Management** (for practice)
+
+---
+
+## 🛠️ Getting Started
+
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser and navigate to:**
+
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+## 📦 Tech Stack
+
+- **React** for UI
+- **Redux Toolkit** for state management (used for learning purposes; local state would suffice for this project)
+- **React Router v7** for navigation
+- **Tailwind CSS** for styling
+- **TypeScript** for type safety
+
+---
+
+## 📚 About State Management
+
+> This project uses **Redux Toolkit** for state management as a practice exercise.  
+> For a project of this size, React’s local state would be sufficient, but Redux is included for learning and demonstration purposes.
+
+---
+
+## 🖼️ Screenshots
+
+![Home Page]()
+![Countries List]()
+
+---
+
+## ❤️ Built with
+
+- [React](https://react.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Router](https://reactrouter.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [REST Countries API](https://restcountries.com/)
+
+---
