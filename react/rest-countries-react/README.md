@@ -4,7 +4,7 @@
 
 ---
 
-## <a id="en"></a>🌍 RESTExplorer
+## <a id="en"></a>🌍 REST Explorer
 
 A modern, React app to explore countries around the world.
 
@@ -82,7 +82,7 @@ A modern, React app to explore countries around the world.
 
 ---
 
-## <a id="tr"></a>🌍 RESTExplorer (Türkçe)
+## <a id="tr"></a>🌍 REST Explorer (Türkçe)
 
 Dünyadaki ülkeleri keşfetmek için modern bir React uygulaması.
 
