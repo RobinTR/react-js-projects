@@ -49,11 +49,6 @@ public/            // Statik dosyalar
    npm run dev
    ```
 
-## Notlar
-
-- Vite ve Tailwind ile hızlı geliştirme ve modern stil desteği sağlanmıştır.
-- Kodlar TypeScript ile yazılmıştır.
-
 ---
 
 # <a name="en"></a>Simple Shopping Cart (English)
@@ -104,8 +99,3 @@ public/            // Static files
    ```
    npm run dev
    ```
-
-## Notes
-
-- Fast development and modern styling with Vite and Tailwind.
-- All code is written in TypeScript.
